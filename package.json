@@ -1,0 +1,28 @@
+{
+  "name": "repl-with",
+  "version": "1.0.0",
+  "description": "Interactive Node.js REPL that can dynamically import any NPM packages",
+  "bin": "bin/index.js",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "test": "vitest"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=16.9.0"
+  },
+  "author": "Johnny Leung",
+  "license": "MIT",
+  "dependencies": {
+    "import-meta-resolve": "^4.1.0",
+    "string-argv": "^0.3.2",
+    "validate-npm-package-name": "^6.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.0",
+    "@types/validate-npm-package-name": "^4.0.2",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}
