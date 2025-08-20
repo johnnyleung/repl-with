@@ -44,6 +44,18 @@ npx repl-with lodash
 [2, 4, 6]
 ```
 
+### Load Multiple Libraries
+
+```bash
+npx repl-with lodash moment
+```
+```javascript
+> lodash.sum([1, 2, 3])
+6
+> moment().format('YYYY-MM-DD')
+'2025-08-16'
+```
+
 ### Using Aliases
 
 Use aliases to make your life easier, or to import package names that are not valid JavaScript variable names.
@@ -55,18 +67,6 @@ npx repl-with _=lodash prettyBytes=pretty-bytes
 6
 > prettyBytes(1234)
 '1.23 kB'
-```
-
-### Multiple Libraries
-
-```bash
-npx repl-with _=lodash moment
-```
-```javascript
-> _.sum([1, 2, 3])
-6
-> moment().format('YYYY-MM-DD')
-'2025-08-16'
 ```
 
 ### Version Comparison
@@ -81,6 +81,32 @@ npx repl-with lodash3=lodash@3.0.0 lodash4=lodash@4.0.0
 '3.0.0'
 > lodash4.VERSION
 '4.0.0'
+```
+
+## 💡 Tips
+
+### ES Modules: Default Export
+
+For compatibility reasons, you need to use `.default` to access default exports in ES modules:
+
+```bash
+npx repl-with axios chalk
+```
+```javascript
+> axios.default.get('https://api.github.com/users/octocat')
+Promise { <pending> }
+> console.log(chalk.default.blue('Hello World!'))
+'Hello World!' // (in blue color)
+```
+
+🪄 For your convenience, if the default export is the _only_ export, then it will be automatically assigned to the variable name:
+
+```bash
+npx repl-with prettyBytes=pretty-bytes
+```
+```javascript
+> prettyBytes(1234)
+'1.23 kB'
 ```
 
 ### Top-level Await
@@ -99,30 +125,6 @@ Promise {
 {
   status: 200,
 ...
-```
-
-## 🔧 ES Module Support
-
-For ES modules with default exports, you may need to use `.default`:
-
-```bash
-npx repl-with axios chalk
-```
-```javascript
-> axios.default.get('https://api.github.com/users/octocat')
-Promise { <pending> }
-> console.log(chalk.default.blue('Hello World!'))
-'Hello World!' // (in blue color)
-```
-
-**Convenience Feature**: When importing ES modules with a default export as the only export, it's automatically assigned to the variable name:
-
-```bash
-npx repl-with prettyBytes=pretty-bytes
-```
-```javascript
-> prettyBytes(1234)
-'1.23 kB'
 ```
 
 ## 🛠️ Built-in Commands
