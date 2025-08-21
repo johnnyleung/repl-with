@@ -93,9 +93,9 @@ export async function importPackageIntoContext (context: Context, installedPacka
 }
 
 export async function importPackagesIntoContext (context: Context, packages: InstalledPackage[]) {
-  await Promise.all(packages.map(async pkg => {
-    return importPackageIntoContext(context, pkg)
-  }));
+  for (const pkg of packages) {
+    await importPackageIntoContext(context, pkg);
+  }
 }
 
 const JS_RESERVED_WORDS:readonly string[] = [
