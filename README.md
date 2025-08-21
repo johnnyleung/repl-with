@@ -16,14 +16,13 @@ Tired of spinning up a new project just to try out a library?
 ## 🚀 Quick Start
 
 ```bash
-# Try it with lodash
-npx repl-with lodash
-
-# Use aliases for convenience
+# Try out Lodash in your CLI!
 npx repl-with _=lodash
-
-# Import multiple libraries
-npx repl-with _=lodash moment axios
+```
+```javascript
+// Interactive REPL with Lodash imported as `_`
+> _.map([1, 2, 3], x => x * 2)
+[2, 4, 6]
 ```
 
 ## 📋 Requirements
