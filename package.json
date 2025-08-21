@@ -1,6 +1,6 @@
 {
   "name": "repl-with",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Interactive Node.js REPL that can dynamically import any NPM packages",
   "bin": "bin/index.js",
   "scripts": {
